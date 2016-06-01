@@ -1,0 +1,13 @@
+.installed.cfg
+*.json
+src/*.sqlite3
+src/*/__pycache__
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
