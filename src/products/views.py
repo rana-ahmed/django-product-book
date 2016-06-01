@@ -6,6 +6,12 @@ from .serializers import ProductSerializer
 
 class ProductAPI(APIView):
     def get(self, request):
+        query_param = request.GET.get('p', None)
+        if query_param:
+            products = Product.objects.filter(name__contains = query_param)
+            serializer = ProductSerializer(products, many = True)
+            return Response(serializer.data)
+
         products = Product.objects.all()
         serializer = ProductSerializer(products, many = True)
         return Response(serializer.data)
